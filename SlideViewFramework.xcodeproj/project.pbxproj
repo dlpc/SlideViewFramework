@@ -36,7 +36,6 @@
 		326E294716CD325D002B0584 /* SlideViewFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideViewFramework.m; sourceTree = "<group>"; };
 		327BC1A816CD397800DC6F2F /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		327BC1A916CD397800DC6F2F /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
-		327BC1AA16CD397800DC6F2F /* ContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContainerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +80,6 @@
 			children = (
 				327BC1A816CD397800DC6F2F /* ContainerViewController.h */,
 				327BC1A916CD397800DC6F2F /* ContainerViewController.m */,
-				327BC1AA16CD397800DC6F2F /* ContainerViewController.xib */,
 				326E294516CD325D002B0584 /* SlideViewFramework.h */,
 				326E294716CD325D002B0584 /* SlideViewFramework.m */,
 				326E294316CD325D002B0584 /* Supporting Files */,

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ContainerViewController.h"
 
 @interface SlideViewFramework : NSObject
 

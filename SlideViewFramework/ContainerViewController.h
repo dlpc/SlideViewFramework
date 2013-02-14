@@ -4,22 +4,24 @@
 //
 //  Created by Heather Snepenger on 9/17/12.
 //
-//
+// This is test gibberish
 
 #import <UIKit/UIKit.h>
 
 @interface ContainerViewController : UIViewController
 
-@property (retain, nonatomic) IBOutlet UIView *mainView;
-@property (retain, nonatomic) IBOutlet UIView *firstLayerView;
-@property (retain, nonatomic) IBOutlet UIView *secondLayerView;
+- (id) initWithBaseViewController:(UIViewController *)bViewController andFirst:(UIViewController *)fViewController andSecond:(UIViewController *)sViewController;
+
+@property (strong) UIView *mainView;
+@property (strong) UIView *firstLayerView;
+@property (strong) UIView *secondLayerView;
 
 @property (retain, nonatomic) UIViewController *mainViewController;
 @property (retain, nonatomic) UIViewController *firstLayerViewController;
 @property (retain, nonatomic) UIViewController *secondLayerViewController;
 
-- (void)slideInMeView;
-- (void)slideToAccounts;
-- (void)slideToMeView;
+- (void)slideInFirstLayerView;
+- (void)slideToMainView;
+- (void)slideToFirstLayerView;
 
 @end

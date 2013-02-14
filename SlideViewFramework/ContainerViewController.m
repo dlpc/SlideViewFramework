@@ -8,6 +8,9 @@
 
 #import "ContainerViewController.h"
 
+static NSInteger height;
+static CGRect size;
+
 @interface ContainerViewController ()
 
 @end
@@ -21,22 +24,37 @@
 @synthesize firstLayerViewController = _firstLayerViewController;
 @synthesize secondLayerViewController = _secondLayerViewController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
 
+- (id)initWithBaseViewController:(UIViewController *)bViewController andFirst:(UIViewController *)fViewController andSecond:(UIViewController *)sViewController
+{
+    //self = [super initWithNibName:@"ContainerViewController" bundle:nil];
+    self = [super init];
+    if(self){
+//        [self setMainViewController:bViewController];
+//        [self setFirstLayerViewController:fViewController];
+//        [self setSecondLayerViewController:sViewController];
     }
-    return self;
+}
+
+- (void)loadView
+{
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.mainView = [[UIView alloc] initWithFrame:[self screenSize]];
+    self.firstLayerView = [[UIView alloc] initWithFrame:[self screenSize]];
+    self.secondLayerView = [[UIView alloc] initWithFrame:[self screenSize]];
+    
+    [self.view addSubview:mainView];
+    [self.view addSubview:firstLayerView];
+    [self.view addSubview:secondLayerView];
+    
     [self updateMainView];
-    [self updatefirstLayerView];
-    [self updateProjectView];
+    [self updateFirstLayerView];
+    [self updateSecondLayerView];
 }
 
 - (void)viewDidUnload
@@ -149,7 +167,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void) implementMeSlide:(UIPanGestureRecognizer *)sender
+- (void) implementFirstLayerSlide:(UIPanGestureRecognizer *)sender
 {
     
     if([sender state] == UIGestureRecognizerStateBegan || [sender state] == UIGestureRecognizerStateChanged){
@@ -346,11 +364,11 @@
             }
         }
     } else {
-        [self implementMeSlide:sender];
+        [self implementFirstLayerSlide:sender];
     }
 }
 
-- (void)slideToAccounts
+- (void)slideToMainView
 {
     if(self.firstLayerView.frame.origin.x < 5){
         [UIView animateWithDuration:0.3
@@ -368,15 +386,13 @@
                              self.firstLayerView.frame = CGRectMake(0, 0, 320, [self screenHeight]);
                          }
                          completion:^(BOOL finished){
-//                             self.firstLayerViewController.tableView.scrollEnabled = YES;
                              self.secondLayerViewController.view.userInteractionEnabled = NO;
-//                             self.firstLayerViewController.tableView.userInteractionEnabled = YES;
                          }];
     }
     
 }
 
-- (void)slideInfirstLayerView
+- (void)slideInFirstLayerView
 {
     [UIView animateWithDuration:0.15
                      animations:^{
@@ -390,7 +406,7 @@
 }
 
 
-- (void) slideTofirstLayerView
+- (void) slideToFirstLayerView
 {
     if(self.secondLayerView.frame.origin.x < 5){
         [UIView animateWithDuration:0.3
@@ -414,35 +430,23 @@
     }
 }
 
-- (IBAction)donePressed:(id)sender {
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         self.webViewContainer.frame = CGRectMake(0, [self screenHeight], 320, [self screenHeight]);
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }
-     ];
+
+#pragma mark -
+#pragma mark Screen Util
+- (NSInteger) screenHeight
+{
+    if (!height) {
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenHeight = screenRect.size.height;
+        height = (int)screenHeight;
+    }
+    return height;
 }
 
-- (NSString *) versionNumberDisplayString {
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];   
-    return [NSString stringWithFormat:@"%@", majorVersion];
-}
-
-- (void)dealloc {
-    [mainView release];
-    [firstLayerView release];
-    [secondLayerView release];
-    
-    [_mainViewController release];
-    [_firstLayerViewController release];
-    [_secondLayerViewController release];
-    
-    [_webView release];
-    [_webViewContainer release];
-    [firstLoadIndicator release];
-    [super dealloc];
+- (CGRect) screenSize
+{
+    if(!size.size.width == 0)
+        size = [[UIScreen mainScreen] bounds];
+    return size;
 }
 @end
