@@ -44,7 +44,7 @@ static CGRect size;
 {
     [super viewDidLoad];
     
-    self.mainView = [[UIView alloc] initWithFrame:[self screenSize]];
+    self.mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];//[[UIView alloc] initWithFrame:[self screenSize]];
     self.firstLayerView = [[UIView alloc] initWithFrame:[self screenSize]];
     self.secondLayerView = [[UIView alloc] initWithFrame:[self screenSize]];
     

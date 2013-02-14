@@ -4,7 +4,7 @@
 //
 //  Created by Heather Snepenger on 9/17/12.
 //
-// This is test gibberish
+// 
 
 #import <UIKit/UIKit.h>
 
@@ -12,7 +12,7 @@
 
 - (id) initWithBaseViewController:(UIViewController *)bViewController andFirst:(UIViewController *)fViewController andSecond:(UIViewController *)sViewController;
 
-@property (strong) UIView *mainView;
+@property (retain, nonatomic) UIView *mainView;
 @property (strong) UIView *firstLayerView;
 @property (strong) UIView *secondLayerView;
 
