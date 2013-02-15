@@ -7,6 +7,11 @@
 //
 
 #import "ContainerViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
+#define DEFAULT_SHADOW_WIDTH -3.0
+#define DEFAULT_SHADOW_HEIGHT 0.5
+#define DEFAULT_SHADOW_OPACITY 0.5
 
 static NSInteger height;
 static CGRect size;
@@ -115,9 +120,7 @@ static CGRect size;
 {
     _firstLayerViewController.view.frame = firstLayerView.frame;
     
-    UIImageView *drop_shadow = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"vc_drop_shadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(40, 0, 40, 0)]];
-    [drop_shadow setFrame:CGRectMake(-16, -20, 60, [self screenHeight] + 15)];
-    [_firstLayerViewController.view addSubview: drop_shadow];
+    [self addDropShadow:self.firstLayerView];
     
     [firstLayerView addSubview:_firstLayerViewController.view];
 }
@@ -144,9 +147,7 @@ static CGRect size;
 {
     _secondLayerViewController.view.frame = secondLayerView.frame;
     
-    UIImageView *drop_shadow = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"vc_drop_shadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(40, 0, 40, 0)]];
-    [drop_shadow setFrame:CGRectMake(-15, -20, 60, [self screenHeight] + 15)];
-    [_secondLayerViewController.view addSubview: drop_shadow];
+    [self addDropShadow:self.secondLayerView];
     
     [secondLayerView addSubview:_secondLayerViewController.view];
 }
@@ -436,6 +437,21 @@ static CGRect size;
                          }
          ];
     }
+}
+
+- (void) addDropShadow:(UIView *)mView
+{
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:mView.bounds];
+    mView.layer.masksToBounds = NO;
+    mView.layer.shadowColor = [UIColor blackColor].CGColor;
+    if(self.shadowOffset.width == 0 && self.shadowOffset.height == 0)
+        mView.layer.shadowOffset = CGSizeMake(DEFAULT_SHADOW_WIDTH, DEFAULT_SHADOW_HEIGHT);
+    else mView.layer.shadowOffset = self.shadowOffset;
+    if (self.shadowOpacity == 0)
+        mView.layer.shadowOpacity = DEFAULT_SHADOW_OPACITY;
+    else mView.layer.shadowOpacity = self.shadowOpacity;
+    
+    mView.layer.shadowPath = shadowPath.CGPath;
 }
 
 

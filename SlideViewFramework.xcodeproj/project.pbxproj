@@ -13,6 +13,7 @@
 		327BC1A716CD379800DC6F2F /* SlideViewFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 326E294516CD325D002B0584 /* SlideViewFramework.h */; };
 		327BC1AB16CD397800DC6F2F /* ContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 327BC1A816CD397800DC6F2F /* ContainerViewController.h */; };
 		327BC1AC16CD397800DC6F2F /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 327BC1A916CD397800DC6F2F /* ContainerViewController.m */; };
+		3A28400E16CE99C000DC397A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A28400D16CE99C000DC397A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 		327BC1A916CD397800DC6F2F /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		3A28400B16CE973A00DC397A /* vc_drop_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vc_drop_shadow.png; sourceTree = "<group>"; };
 		3A28400C16CE973A00DC397A /* vc_drop_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vc_drop_shadow@2x.png"; sourceTree = "<group>"; };
+		3A28400D16CE99C000DC397A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A28400E16CE99C000DC397A /* QuartzCore.framework in Frameworks */,
 				326E294116CD325D002B0584 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +75,7 @@
 		326E293F16CD325D002B0584 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A28400D16CE99C000DC397A /* QuartzCore.framework */,
 				326E294016CD325D002B0584 /* Foundation.framework */,
 			);
 			name = Frameworks;

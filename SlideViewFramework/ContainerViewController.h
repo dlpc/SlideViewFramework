@@ -12,9 +12,12 @@
 
 - (id) initWithBaseViewController:(UIViewController *)bViewController andFirst:(UIViewController *)fViewController andSecond:(UIViewController *)sViewController;
 
-@property (retain, nonatomic) UIView *mainView;
+@property (strong) UIView *mainView;
 @property (strong) UIView *firstLayerView;
 @property (strong) UIView *secondLayerView;
+
+@property (assign) CGFloat shadowOpacity;
+@property (assign) CGSize shadowOffset;
 
 @property (retain, nonatomic) UIViewController *mainViewController;
 @property (retain, nonatomic) UIViewController *firstLayerViewController;
