@@ -25,26 +25,31 @@ static CGRect size;
 @synthesize secondLayerViewController = _secondLayerViewController;
 
 
+
+//Custom init for 3 VCs
 - (id)initWithBaseViewController:(UIViewController *)bViewController andFirst:(UIViewController *)fViewController andSecond:(UIViewController *)sViewController
 {
-    //self = [super initWithNibName:@"ContainerViewController" bundle:nil];
     self = [super init];
     if(self){
-//        [self setMainViewController:bViewController];
-//        [self setFirstLayerViewController:fViewController];
-//        [self setSecondLayerViewController:sViewController];
+        [self setMainViewController:bViewController];
+        [self setFirstLayerViewController:fViewController];
+        [self setSecondLayerViewController:sViewController];
     }
+    return self;
 }
 
-- (void)loadView
-{
+- (void)loadView{
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    contentView.backgroundColor = [UIColor greenColor];
+    self.view = contentView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];//[[UIView alloc] initWithFrame:[self screenSize]];
+    self.mainView = [[UIView alloc] initWithFrame:[self screenSize]];
     self.firstLayerView = [[UIView alloc] initWithFrame:[self screenSize]];
     self.secondLayerView = [[UIView alloc] initWithFrame:[self screenSize]];
     
@@ -55,6 +60,13 @@ static CGRect size;
     [self updateMainView];
     [self updateFirstLayerView];
     [self updateSecondLayerView];
+    
+    UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementFirstLayerSlide:)];
+    [self.firstLayerView addGestureRecognizer:gesture];
+    
+    UIPanGestureRecognizer *projectGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementSecondLayerSlide:)];
+    [self.secondLayerView addGestureRecognizer:projectGesture];
+    
 }
 
 - (void)viewDidUnload
@@ -75,7 +87,6 @@ static CGRect size;
 
 - (void)updateMainView
 {
-    mainView.frame = [self screenSize];
     _mainViewController.view.frame = mainView.frame;
     
     [mainView addSubview:_mainViewController.view];
@@ -102,7 +113,6 @@ static CGRect size;
 
 - (void)updateFirstLayerView
 {
-    firstLayerView.frame = [self screenSize];
     _firstLayerViewController.view.frame = firstLayerView.frame;
     
     UIImageView *drop_shadow = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"vc_drop_shadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(40, 0, 40, 0)]];
@@ -125,15 +135,13 @@ static CGRect size;
             [self updateFirstLayerView];
         }
     }else{
-        [[firstLayerView subviews]
-         makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        [[firstLayerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     }
     
 }
 
 - (void)updateSecondLayerView
 {
-    secondLayerView.frame = [self screenSize];
     _secondLayerViewController.view.frame = secondLayerView.frame;
     
     UIImageView *drop_shadow = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"vc_drop_shadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(40, 0, 40, 0)]];
@@ -285,7 +293,7 @@ static CGRect size;
     }
 }
 
-- (void) implementProjectSlide:(UIPanGestureRecognizer *)sender
+- (void) implementSecondLayerSlide:(UIPanGestureRecognizer *)sender
 {
     if(self.firstLayerView.frame.origin.x < 2){
         if([sender state] == UIGestureRecognizerStateBegan || [sender state] == UIGestureRecognizerStateChanged){
@@ -445,7 +453,7 @@ static CGRect size;
 
 - (CGRect) screenSize
 {
-    if(!size.size.width == 0)
+    if(size.size.width == 0)
         size = [[UIScreen mainScreen] bounds];
     return size;
 }

@@ -36,6 +36,8 @@
 		326E294716CD325D002B0584 /* SlideViewFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideViewFramework.m; sourceTree = "<group>"; };
 		327BC1A816CD397800DC6F2F /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		327BC1A916CD397800DC6F2F /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
+		3A28400B16CE973A00DC397A /* vc_drop_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vc_drop_shadow.png; sourceTree = "<group>"; };
+		3A28400C16CE973A00DC397A /* vc_drop_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vc_drop_shadow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		326E294216CD325D002B0584 /* SlideViewFramework */ = {
 			isa = PBXGroup;
 			children = (
+				3A28400A16CE972D00DC397A /* Images */,
 				327BC1A816CD397800DC6F2F /* ContainerViewController.h */,
 				327BC1A916CD397800DC6F2F /* ContainerViewController.m */,
 				326E294516CD325D002B0584 /* SlideViewFramework.h */,
@@ -93,6 +96,15 @@
 				326E294416CD325D002B0584 /* SlideViewFramework-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A28400A16CE972D00DC397A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3A28400B16CE973A00DC397A /* vc_drop_shadow.png */,
+				3A28400C16CE973A00DC397A /* vc_drop_shadow@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
