@@ -16,6 +16,8 @@
 @property (strong) UIView *firstLayerView;
 @property (strong) UIView *secondLayerView;
 
+@property (strong) UIView *secondViewIgnoreView;
+
 @property (assign) CGFloat shadowOpacity;
 @property (assign) CGSize shadowOffset;
 
@@ -27,5 +29,9 @@
 - (void)slideToMainView;
 - (void)slideToFirstLayerView;
 - (void)slideInSecondLayerView;
+
+@property (assign) BOOL firstSlideEnabled;
+
+- (void)enableFirstPaneSlide:(BOOL)enable;
 
 @end

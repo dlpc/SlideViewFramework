@@ -25,6 +25,8 @@ static CGRect size;
 @synthesize firstLayerView;
 @synthesize secondLayerView;
 
+@synthesize secondViewIgnoreView;
+
 @synthesize mainViewController = _mainViewController;
 @synthesize firstLayerViewController = _firstLayerViewController;
 @synthesize secondLayerViewController = _secondLayerViewController;
@@ -88,6 +90,10 @@ static CGRect size;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)enableFirstPaneSlide:(BOOL)enable{
+    self.firstSlideEnabled = enable;
 }
 
 - (void)updateMainView
@@ -179,7 +185,7 @@ static CGRect size;
 - (void) implementFirstLayerSlide:(UIPanGestureRecognizer *)sender
 {
     
-    if([sender state] == UIGestureRecognizerStateBegan || [sender state] == UIGestureRecognizerStateChanged){
+    if(([sender state] == UIGestureRecognizerStateBegan || [sender state] == UIGestureRecognizerStateChanged) && self.firstSlideEnabled){
         
         CGPoint translation = [sender translationInView:[self.firstLayerView superview]];
         [self.firstLayerView setCenter:CGPointMake(MAX([self.firstLayerView center].x + translation.x, 160),  [self.firstLayerView center].y)];
@@ -190,7 +196,7 @@ static CGRect size;
             [sender setTranslation:CGPointZero inView:[self.secondLayerView superview]];
         }
         
-    }else if([sender state] == UIGestureRecognizerStateEnded){
+    }else if(([sender state] == UIGestureRecognizerStateEnded) && self.firstSlideEnabled){
         CGPoint velocity = [sender velocityInView:self.view];
         if(self.firstLayerView.frame.origin.x < 200){
             
