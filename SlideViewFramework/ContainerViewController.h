@@ -26,5 +26,6 @@
 - (void)slideInFirstLayerView;
 - (void)slideToMainView;
 - (void)slideToFirstLayerView;
+- (void)slideInSecondLayerView;
 
 @end

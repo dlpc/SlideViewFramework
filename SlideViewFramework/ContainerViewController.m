@@ -439,6 +439,19 @@ static CGRect size;
     }
 }
 
+- (void) slideInSecondLayerView
+{
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.firstLayerView.frame = CGRectMake(0, 0, 320, [self screenHeight]);
+                         self.secondLayerView.frame = CGRectMake(0, 0, 320, [self screenHeight]);
+                     }
+                     completion:^(BOOL finished) {
+                         self.secondLayerView.userInteractionEnabled = YES;
+                     }
+     ];
+}
+
 - (void) addDropShadow:(UIView *)mView
 {
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:mView.bounds];
