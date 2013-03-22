@@ -430,7 +430,7 @@ static CGRect size;
                          }
                          completion:^(BOOL finished) {
                              self.firstLayerViewController.view.userInteractionEnabled = YES;
-                             self.secondLayerViewController.view.userInteractionEnabled = NO;
+                             self.secondLayerViewController.view.userInteractionEnabled = YES;
                          }
          ];
     }else{
