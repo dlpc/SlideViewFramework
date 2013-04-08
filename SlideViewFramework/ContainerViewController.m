@@ -74,6 +74,8 @@ static CGRect size;
     UIPanGestureRecognizer *projectGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementSecondLayerSlide:)];
     [self.secondLayerView addGestureRecognizer:projectGesture];
     
+    [self enableFirstPaneSlide:YES];
+    
 }
 
 - (void)viewDidUnload

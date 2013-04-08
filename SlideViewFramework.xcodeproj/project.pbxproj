@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		326E294116CD325D002B0584 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326E294016CD325D002B0584 /* Foundation.framework */; };
-		326E294616CD325D002B0584 /* SlideViewFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 326E294516CD325D002B0584 /* SlideViewFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		326E294616CD325D002B0584 /* SlideViewFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 326E294516CD325D002B0584 /* SlideViewFramework.h */; settings = {ATTRIBUTES = (); }; };
 		326E294816CD325D002B0584 /* SlideViewFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 326E294716CD325D002B0584 /* SlideViewFramework.m */; };
 		327BC1A716CD379800DC6F2F /* SlideViewFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 326E294516CD325D002B0584 /* SlideViewFramework.h */; };
 		327BC1AB16CD397800DC6F2F /* ContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 327BC1A816CD397800DC6F2F /* ContainerViewController.h */; };
@@ -106,8 +106,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				326E294616CD325D002B0584 /* SlideViewFramework.h in Headers */,
 				327BC1AB16CD397800DC6F2F /* ContainerViewController.h in Headers */,
+				326E294616CD325D002B0584 /* SlideViewFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
