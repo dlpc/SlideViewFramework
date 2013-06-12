@@ -78,6 +78,8 @@ static CGRect size;
     
     [self enableFirstPaneSlide:YES];
     
+    [self slideToMainView];
+    
 }
 
 - (void)viewDidUnload
@@ -128,11 +130,13 @@ static CGRect size;
 
 - (void)updateFirstLayerView
 {
-    _firstLayerViewController.view.frame = firstLayerView.frame;
+    _firstLayerViewController.view.frame = CGRectMake(0, 0, 320, [self screenHeight]);//firstLayerView.frame;
     
     [self addDropShadow:self.firstLayerView];
     
     [firstLayerView addSubview:_firstLayerViewController.view];
+    [firstLayerView bringSubviewToFront:_firstLayerViewController.view];
+    
 }
 
 - (void)setFirstLayerViewController:(UIViewController *)firstLayerViewController
@@ -155,7 +159,7 @@ static CGRect size;
 
 - (void)updateSecondLayerView
 {
-    _secondLayerViewController.view.frame = secondLayerView.frame;
+    _secondLayerViewController.view.frame = CGRectMake(0, 0, 320, [self screenHeight]);//secondLayerView.frame;
     
     [self addDropShadow:self.secondLayerView];
     
@@ -387,6 +391,19 @@ static CGRect size;
     }
 }
 
+- (void)slideInMainView
+{
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.secondLayerView.frame = CGRectMake(310, 0, 320, [self screenHeight]);
+                         self.firstLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }
+     ];
+}
+
 - (void)slideToMainView
 {
     if(self.firstLayerView.frame.origin.x < 5){
@@ -411,6 +428,7 @@ static CGRect size;
     
 }
 
+//Make the first layer view the visible one
 - (void)slideInFirstLayerView
 {
     [UIView animateWithDuration:0.15
@@ -427,6 +445,7 @@ static CGRect size;
 
 - (void) slideToFirstLayerView
 {
+    //If the second layer is covering the first layer, slide it out of view
     if(self.secondLayerView.frame.origin.x < 5){
         [UIView animateWithDuration:0.3
                          animations:^{
@@ -437,6 +456,7 @@ static CGRect size;
                              self.secondLayerViewController.view.userInteractionEnabled = YES;
                          }
          ];
+    //Otherwise slide the second layer view over the first one
     }else{
         [UIView animateWithDuration:0.3
                          animations:^{
@@ -481,12 +501,12 @@ static CGRect size;
 #pragma mark Replacement Methods
 - (void)replaceFirstLayerViewControllerWithViewController:(UIViewController *)newViewController{
     [self setFirstLayerViewController:newViewController];
-    [self updateFirstLayerView];
+//    [self updateFirstLayerView];
 }
 
 - (void)replaceSecondLayerViewControllerWithViewController:(UIViewController *)newViewController{
     [self setSecondLayerViewController:newViewController];
-    [self updateSecondLayerView];
+//    [self updateSecondLayerView];
 }
 
 

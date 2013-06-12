@@ -26,6 +26,7 @@
 @property (retain, nonatomic) UIViewController *secondLayerViewController;
 
 - (void)slideInFirstLayerView;
+- (void)slideInMainView;
 - (void)slideToMainView;
 - (void)slideToFirstLayerView;
 - (void)slideInSecondLayerView;
