@@ -34,4 +34,7 @@
 
 - (void)enableFirstPaneSlide:(BOOL)enable;
 
+- (void)replaceFirstLayerViewControllerWithViewController:(UIViewController *)newViewController;
+- (void)replaceSecondLayerViewControllerWithViewController:(UIViewController *)newViewController;
+
 @end

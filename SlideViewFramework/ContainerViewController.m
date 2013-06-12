@@ -16,7 +16,9 @@
 static NSInteger height;
 static CGRect size;
 
-@interface ContainerViewController ()
+@interface ContainerViewController (){
+    NSMutableArray *privateArray;
+}
 
 @end
 
@@ -473,6 +475,18 @@ static CGRect size;
     else mView.layer.shadowOpacity = self.shadowOpacity;
     
     mView.layer.shadowPath = shadowPath.CGPath;
+}
+
+#pragma mark -
+#pragma mark Replacement Methods
+- (void)replaceFirstLayerViewControllerWithViewController:(UIViewController *)newViewController{
+    [self setFirstLayerViewController:newViewController];
+    [self updateFirstLayerView];
+}
+
+- (void)replaceSecondLayerViewControllerWithViewController:(UIViewController *)newViewController{
+    [self setSecondLayerViewController:newViewController];
+    [self updateSecondLayerView];
 }
 
 
