@@ -402,6 +402,7 @@ static CGRect size;
                          
                      }
      ];
+    [self.delegate sayHello:self];
 }
 
 - (void)slideToMainView

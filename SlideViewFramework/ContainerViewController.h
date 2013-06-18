@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class ContainerViewController;
+
+@protocol ContainerDelegate <NSObject>
+
+-(void)sayHello:(ContainerViewController *)customClass;
+
+@end
+
 @interface ContainerViewController : UIViewController
 
 - (id) initWithBaseViewController:(UIViewController *)bViewController andFirst:(UIViewController *)fViewController andSecond:(UIViewController *)sViewController;
@@ -37,5 +45,8 @@
 
 - (void)replaceFirstLayerViewControllerWithViewController:(UIViewController *)newViewController;
 - (void)replaceSecondLayerViewControllerWithViewController:(UIViewController *)newViewController;
+
+// define delegate property
+@property (nonatomic, assign) id  delegate;
 
 @end
