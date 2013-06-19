@@ -18,6 +18,9 @@ static CGRect size;
 
 @interface ContainerViewController (){
     NSMutableArray *privateArray;
+    
+    UIPanGestureRecognizer *firstGesture;
+    UIPanGestureRecognizer *secondGesture;
 }
 
 @end
@@ -70,16 +73,16 @@ static CGRect size;
     [self updateFirstLayerView];
     [self updateSecondLayerView];
     
-    UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementFirstLayerSlide:)];
-    [self.firstLayerView addGestureRecognizer:gesture];
+    firstGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementFirstLayerSlide:)];
+    [self.firstLayerView addGestureRecognizer:firstGesture];
     
-    UIPanGestureRecognizer *projectGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementSecondLayerSlide:)];
-    [self.secondLayerView addGestureRecognizer:projectGesture];
+    secondGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(implementSecondLayerSlide:)];
+    [self.secondLayerView addGestureRecognizer:secondGesture];
     
     [self enableFirstPaneSlide:YES];
     
     [self slideToMainView];
-    
+    NSLog(@"view did load");
 }
 
 - (void)viewDidUnload
@@ -96,6 +99,13 @@ static CGRect size;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+
+//Allow the user to remove the swipe
+- (void)removeSwipe{
+    [self.firstLayerView removeGestureRecognizer:firstGesture];
+    [self.secondLayerView removeGestureRecognizer:secondGesture];
 }
 
 - (void)enableFirstPaneSlide:(BOOL)enable{

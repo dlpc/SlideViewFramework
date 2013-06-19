@@ -39,6 +39,8 @@
 - (void)slideToFirstLayerView;
 - (void)slideInSecondLayerView;
 
+- (void)removeSwipe;
+
 @property (assign) BOOL firstSlideEnabled;
 
 - (void)enableFirstPaneSlide:(BOOL)enable;
