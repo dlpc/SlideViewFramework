@@ -493,6 +493,22 @@ static CGRect size;
      ];
 }
 
+- (void) handleSlideFirstView{
+    if (self.firstLayerView.frame.origin.x == 0) {
+        [self slideToMainView];
+    }else{
+        [self slideInFirstLayerView];
+    }
+}
+
+- (void) handleSlideSecondView{
+    if (self.secondLayerView.frame.origin.x == 0) {
+        [self slideToFirstLayerView];
+    }else{
+        [self slideInSecondLayerView];
+    }
+}
+
 - (void) addDropShadow:(UIView *)mView
 {
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:mView.bounds];
