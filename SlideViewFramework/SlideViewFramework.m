@@ -11,7 +11,7 @@
 @implementation SlideViewFramework
 
 - (void) printTest{
-    NSLog(@"test");
+
 }
 
 @end

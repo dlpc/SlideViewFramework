@@ -536,6 +536,8 @@ static CGRect size;
 #pragma mark Replacement Methods
 - (void)replaceFirstLayerViewControllerWithViewController:(UIViewController *)newViewController{
     [self setFirstLayerViewController:newViewController];
+    self.shadowOpacity = 0.2;
+    
 //    [self updateFirstLayerView];
 }
 
