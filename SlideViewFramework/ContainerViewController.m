@@ -82,7 +82,15 @@ static CGRect size;
     [self enableFirstPaneSlide:YES];
     
     [self slideToMainView];
-    NSLog(@"view did load");
+    
+    //If the firstLayerViewController is nil, hide the view from the screen
+    if (!self.firstLayerViewController) {
+        [firstLayerView setFrame:CGRectMake(320, 0, 320, [self screenHeight])];
+    }
+    //If the secondLayerViewController is nil, hide the view from the screen
+    if (!self.secondLayerViewController) {
+        [secondLayerView setFrame:CGRectMake(320, 0, 320, [self screenHeight])];
+    }
 }
 
 - (void)viewDidUnload
