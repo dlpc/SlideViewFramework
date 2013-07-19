@@ -517,6 +517,10 @@ static CGRect size;
     }
 }
 
+- (void) hideSecondView{
+    self.secondLayerView.frame = CGRectMake(320, 0, 320, [self screenHeight]);
+}
+
 - (void) addDropShadow:(UIView *)mView
 {
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:mView.bounds];

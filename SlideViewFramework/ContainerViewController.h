@@ -39,6 +39,8 @@
 - (void)slideToFirstLayerView;
 - (void)slideInSecondLayerView;
 
+- (void)hideSecondView;
+
 - (void)handleSlideFirstView;
 - (void)handleSlideSecondView;
 
