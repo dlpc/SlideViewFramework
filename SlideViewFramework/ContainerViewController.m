@@ -233,6 +233,8 @@ static CGRect size;
                     float time = MIN(distance / velocity.x, 0.3);
 
                     [UIView animateWithDuration:time
+                                          delay:0
+                                        options:UIViewAnimationOptionCurveEaseOut
                                      animations:^{
                                          self.secondLayerView.frame = CGRectMake(315, 0, 320, [self screenHeight]);
                                          self.firstLayerView.frame = CGRectMake(290, 0, 320, [self screenHeight]);
@@ -256,6 +258,8 @@ static CGRect size;
                     float time = MIN(distance / velocity.x, 0.3);
                     
                     [UIView animateWithDuration:time
+                                          delay:0
+                                        options:UIViewAnimationOptionCurveEaseOut
                                      animations:^{
                                          self.secondLayerView.frame = CGRectMake(310, 0, 320, [self screenHeight]);
                                          self.firstLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
@@ -271,6 +275,8 @@ static CGRect size;
                 float time = MIN(distance / velocity.x, 0.3);
                 
                 [UIView animateWithDuration:time
+                                      delay:0
+                                    options:UIViewAnimationOptionCurveEaseOut
                                  animations:^{
                                      self.firstLayerView.frame = CGRectMake(0, 0, 320, [self screenHeight]);
                                      self.secondLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
@@ -291,6 +297,8 @@ static CGRect size;
                 float time = MIN(distance / velocity.x, 0.3);
                 
                 [UIView animateWithDuration:time
+                                      delay:0
+                                    options:UIViewAnimationOptionCurveEaseOut
                                  animations:^{
                                      self.secondLayerView.frame = CGRectMake(315, 0, 320, [self screenHeight]);
                                      self.firstLayerView.frame = CGRectMake(290, 0, 320, [self screenHeight]);
@@ -298,6 +306,8 @@ static CGRect size;
                                  completion:^(BOOL finished){
                                      
                                      [UIView animateWithDuration:0.15
+                                                           delay:0
+                                                         options:UIViewAnimationOptionCurveEaseOut
                                                       animations:^{
                                                           self.secondLayerView.frame = CGRectMake(310, 0, 320, [self screenHeight]);
                                                           self.firstLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
@@ -313,6 +323,8 @@ static CGRect size;
                 float time = MIN(distance / velocity.x, 0.3);
                 
                 [UIView animateWithDuration:time
+                                      delay:0
+                                    options:UIViewAnimationOptionCurveEaseOut
                                  animations:^{
                                      self.secondLayerView.frame = CGRectMake(310, 0, 320, [self screenHeight]);
                                      self.firstLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
@@ -346,12 +358,16 @@ static CGRect size;
                     
                     if(self.secondLayerView.frame.origin.x < 275){
                         [UIView animateWithDuration:time
+                                              delay:0
+                                            options:UIViewAnimationOptionCurveEaseOut
                                          animations:^{
                                              self.secondLayerView.frame = CGRectMake(290, 0, 320, [self screenHeight]);
                                          }
                                          completion:^(BOOL finished){
                                              
                                              [UIView animateWithDuration:0.15
+                                                                   delay:0
+                                                                 options:UIViewAnimationOptionCurveEaseOut
                                                               animations:^{
                                                                   self.secondLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
                                                                   
@@ -367,19 +383,23 @@ static CGRect size;
                         float distance = abs(self.secondLayerView.frame.origin.x - 275);
                         float time = MIN(distance / velocity.x, 0.3);
                         [UIView animateWithDuration:time
+                                              delay:0
+                                            options:UIViewAnimationOptionCurveEaseOut
                                          animations:^{
                                              self.secondLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
                                              
                                          }
                                          completion:^(BOOL finished){
                                              self.secondLayerViewController.view.userInteractionEnabled = NO;
-                                            self.secondLayerViewController.navigationItem.leftBarButtonItem.enabled = NO;
+                                             self.secondLayerViewController.navigationItem.leftBarButtonItem.enabled = NO;
                                          }];
                     }
                 }else{
                     float distance = abs(self.secondLayerView.frame.origin.x);
                     float time = MIN(distance / velocity.x, 0.3);
                     [UIView animateWithDuration:time
+                                          delay:0
+                                        options:UIViewAnimationOptionCurveEaseOut
                                      animations:^{
                                          self.secondLayerView.frame = CGRectMake(0, 0, 320, [self screenHeight]);
                                      }
@@ -394,6 +414,8 @@ static CGRect size;
                 float distance = abs(self.secondLayerView.frame.origin.x - 275);
                 float time = MIN(distance / velocity.x, 0.3);
                 [UIView animateWithDuration:time
+                                      delay:0
+                                    options:UIViewAnimationOptionCurveEaseOut
                                  animations:^{
                                      self.secondLayerView.frame = CGRectMake(275, 0, 320, [self screenHeight]);
                                  }
